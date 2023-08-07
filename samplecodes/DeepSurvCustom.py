@@ -12,14 +12,13 @@
 #     name: python3
 # ---
 
-# # Sim-Irem
-#
+# Please follow the dependencies list from https://github.com/jaredleekatzman/DeepSurv 
 
 # +
 # Use DeepSurv from the repo
 
 import sys
-sys.path.append("/irem/code/DeepSurv/veriler/veriler/DeepSurv/deepsurv")
+sys.path.append("./DeepSurv/deepsurv")
 import deep_surv
 
 from deepsurv_logger import DeepSurvLogger, TensorboardLogger
@@ -43,8 +42,8 @@ learning_rate=0.0001;
 lr_decay=0.0001;
 momentum=0.9;
 standardize=True
-#csv= '/mnt/batch/tasks/shared/LS_root/mounts/clusters/survival3/code/DeepSurv/i.csv'
-logdir = '/irem/code/DeepSurv/veriler/veriler/DeepSurv/logs2/'
+#csv= './DeepSurv/i.csv'
+logdir = './DeepSurv/logs2/'
 
 
 i=0;
@@ -52,10 +51,10 @@ for i in range(100):
     i<=i+1
 
     import glob 
-    files = glob.glob("/irem/code/DeepSurv/veriler/sim21/train*.csv")
+    files = glob.glob("./Train.csv")
 
     import glob 
-    valid = glob.glob("/irem/code/DeepSurv/veriler/sim21/valid*.csv")
+    valid = glob.glob("./valid.csv")
 
     train_dataset_fp = files[i]
     train_df = pd.read_csv(train_dataset_fp)
@@ -115,7 +114,7 @@ for i in range(100):
         # Uncomment the below line, and comment out the other three lines: 
         # logger = None
 
-        experiment_name = 'test_experiment_erdal'
+        experiment_name = 'test_experiment'
         logdir = logdir
         logger = TensorboardLogger(experiment_name, logdir=logdir)
 
