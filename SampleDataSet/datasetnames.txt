@@ -1,3 +1,6 @@
 Sample Data sets:
+
 1. Train.csv
 2. Test.csv
+
+NOTICE: These datasets are synthetic and do not include any REAL patient data.
